@@ -1,24 +1,32 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { addContentTask, addTitleTask } from '../store/action-creators/todos';
+import { addContentTask, addTask, addTitleTask } from '../../store/action-creators/todos';
 
 function AddTask() {
 
     const dispatch = useDispatch()
     const titleValue = useSelector((state)=>{
-        return state.titleValue
+        return state.tasks.titleValue
     })
     const contentValue = useSelector((state)=>{
-        return state.contentValue
+        return state.tasks.contentValue
     })
 
+    const curentDate = new Date().toLocaleDateString()
+    
+    const newTaskData = {
+        title: titleValue,
+        content: contentValue,
+        createdate: curentDate
+    }
+
     return (
-        <div className="w-100 d-flex">
+        <div className="w-100 d-flex ">
             <div  className="">
-                <button type="button" className="btn btn-primary">Primary</button>
+                <button type="button" onClick={()=>dispatch(addTask(newTaskData))} className="btn btn-primary">Добавить задачу</button>
                 
             </div>
-            <div className="mb-3 w-100">
+            <div className="mb-3 w-75">
                     <input type="text" onChange={(e)=>dispatch(addTitleTask(e.target.value))} value={titleValue} className="form-control" id="" placeholder=""/>
                     <input type="text" onChange={(e)=>dispatch(addContentTask(e.target.value))} value={contentValue} className="form-control" id="" placeholder=""/>
                 </div>

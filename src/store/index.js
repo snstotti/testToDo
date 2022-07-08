@@ -8,7 +8,7 @@ import { todoReducer } from "./todoReducer";
 
 const rootReducer  = combineReducers({
     
-    todo: todoReducer
+    tasks: todoReducer
 })
 
 export const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
