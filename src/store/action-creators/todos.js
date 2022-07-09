@@ -1,21 +1,21 @@
-import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS, SORTING_CONTENT } from "../../types/tasks"
+import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS, SORTING_CONTENT } from "../../types/tasks"
+import TaskApi from "../../api/api"
 
+const api = new TaskApi()
 
 export const addTitleTask = (text) => {
-    return { type: "CHANGE_TITLE", payload: text }
+    return { type: CHANGE_TITLE, payload: text }
 }
 export const addContentTask = (text) => {
-    return { type: "CHANGE_CONTENT", payload: text }
+    return { type: CHANGE_CONTENT, payload: text }
 }
 export const getTask = () => {
     return async (dispatch) => {
         try {
             dispatch({ type: FETCH_TASKS })
-            const response = await fetch('http://localhost:3000/tasks')
-
-            const data = await response.json()
-
-
+            
+            const data = await api.getTasks()
+            
             dispatch({ type: FETCH_TASKS_SUCCESS, payload: data })
 
         } catch (error) {
@@ -28,13 +28,9 @@ export const addTask = (data) => {
     return async (dispatch) => {
         try {
             dispatch({ type: ADD_TASK })
-            await fetch('http://localhost:3000/tasks', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify(data)
-            })
+           
+            await api.postTask(data)
+            
             dispatch({ type: ADD_TASKS_SUCCESS })
 
         } catch (error) {
@@ -47,13 +43,7 @@ export const removeTask = (id) => {
     return async (dispatch) => {
         try {
             dispatch({ type: DELETE_TASK })
-            await fetch(`http://localhost:3000/tasks/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: null
-            })
+            await api.deleteTask(id)
             dispatch({ type: DELETE_TASKS_SUCCESS })
 
         } catch (error) {
@@ -66,13 +56,8 @@ export const putTask = (data) => {
     return async (dispatch) => {
         try {
             dispatch({ type: PUT_TASK })
-            await fetch(`http://localhost:3000/tasks/${data.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
+            
+            await api.putTask(data)
             dispatch({ type: PUT_TASKS_SUCCESS })
 
         } catch (error) {
@@ -94,9 +79,7 @@ export const sortingTask = (flag) => {
     return async (dispatch) => {
         try {
             dispatch({ type: FETCH_TASKS })
-            const response = await fetch('http://localhost:3000/tasks')
-
-            const data = await response.json()
+            const data = await api.getTasks()
 
             if(flag === "NEW"){
                 const curentDate = new Date().toLocaleDateString()
