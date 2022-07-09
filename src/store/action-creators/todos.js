@@ -1,4 +1,4 @@
-import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS, SORTING_CONTENT } from "../../types/tasks"
+import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS } from "../../types/tasks"
 import TaskApi from "../../api/api"
 
 const api = new TaskApi()
@@ -102,6 +102,25 @@ export const sortingTask = (flag) => {
             dispatch({ type: FETCH_TASKS_ERROR, payload: 'Произошла ошибка' })
         }
     }
-    // return { type: SORTING_CONTENT, payload: flag }
+   
+}
+export const ssearchTask = (value) => {
+    return async (dispatch) => {
+
+        try {
+            dispatch({ type: FETCH_TASKS })
+            const data = await api.getTasks()
+
+            const searchData = data.filter(task =>{
+               return task.title.includes(value) || task.content.includes(value)
+            });
+
+            return dispatch({ type: FETCH_TASKS_SUCCESS, payload: searchData })
+
+        } catch (error) {
+            dispatch({ type: FETCH_TASKS_ERROR, payload: 'Произошла ошибка' })
+        }
+    }
+   
 }
 

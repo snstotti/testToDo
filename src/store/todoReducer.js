@@ -1,21 +1,7 @@
-import { filterByDate } from "../helpers/helpers"
-import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS, SORTING_CONTENT,  } from "../types/tasks"
+import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS, } from "../types/tasks"
+import { taskState } from "./defaultState/defaultState"
 
-const defaultState = {
-    tasks: [],
-    titleValue: "",
-    contentValue: "",
-    loading: false,
-    error: "",
-    added: false,
-    onRemoval:false,
-    onEdit: false,
-    editTitle: ""
-}
-
-
-
-export const todoReducer = (state = defaultState, action)  => {
+export const todoReducer = (state = taskState, action)  => {
 
     switch (action.type) {
      
@@ -73,8 +59,6 @@ export const todoReducer = (state = defaultState, action)  => {
             return { ...state,  error: action.payload }
 
         
-        
-       
         default:
             return state
     }

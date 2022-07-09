@@ -1,6 +1,7 @@
 import AddTask from "./components/addTask/addTask";
 import TaskList from "./components/taskList/taskList";
 import Sorting from "./components/sorting/sorting";
+import SearchTask from "./components/searchTask/searchTask";
 
 function App() {
   return (
@@ -8,7 +9,11 @@ function App() {
       <div className="m-5">
       
         <AddTask />
-        <Sorting />
+        <div className="d-flex justify-content-around mb-2">
+          <Sorting />
+          <SearchTask />
+        </div>
+        
         <TaskList />
       </div>
      
