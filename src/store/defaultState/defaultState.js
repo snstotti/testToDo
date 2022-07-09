@@ -10,3 +10,14 @@ export const taskState = {
     editTitle: "",
     searchFiled: ""
 }
+export const completedTask = {
+    copletedTasks: [],
+    loading: false,
+    error: "",
+}
+export const deletetedTaskState = {
+    deletedTasks: [],
+    loading: false,
+    error: "",
+    onRemoval: false
+}

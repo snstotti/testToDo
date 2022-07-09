@@ -1,4 +1,4 @@
-import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS } from "../../types/tasks"
+import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS } from "../../types/tasks"
 import TaskApi from "../../api/api"
 
 const api = new TaskApi()
@@ -28,26 +28,19 @@ export const addTask = (data) => {
     return async (dispatch) => {
         try {
             dispatch({ type: ADD_TASK })
-           
-            await api.postTask(data)
+            const curentDate = new Date().toLocaleDateString()
+            const newTask = {
+                title: data.title,
+                content: data.content,
+                createdate: curentDate,
+                completionStatus: false
+            }
+            await api.postTask(newTask)
             
             dispatch({ type: ADD_TASKS_SUCCESS })
 
         } catch (error) {
             dispatch({ type: ADD_TASKS_ERROR, payload: 'Произошла ошибка' })
-        }
-    }
-}
-export const removeTask = (id) => {
-
-    return async (dispatch) => {
-        try {
-            dispatch({ type: DELETE_TASK })
-            await api.deleteTask(id)
-            dispatch({ type: DELETE_TASKS_SUCCESS })
-
-        } catch (error) {
-            dispatch({ type: DELETE_TASKS_ERROR, payload: 'Произошла ошибка' })
         }
     }
 }
@@ -65,8 +58,6 @@ export const putTask = (data) => {
         }
     }
 }
-
-
 export const editTaskTitle = (id, text) => {
 
     return { type: EDIT_TITLE, payload: { id, text } }

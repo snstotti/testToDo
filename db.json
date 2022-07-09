@@ -2,33 +2,154 @@
   "tasks": [
     {
       "id": "1",
+      "completionStatus": false,
       "title": "Первая задача",
       "content": "Контент первой задачи",
       "createdate": "01.07.2022"
     },
     {
       "id": "2",
+      "completionStatus": false,
       "title": "Вторая задача",
       "content": "Контент 2 задачи",
       "createdate": "02.07.2022"
     },
     {
       "id": "3",
+      "completionStatus": false,
       "title": "Третья задача",
       "content": "Контент 3 задачи",
       "createdate": "03.07.2022"
     },
     {
       "title": "новая задача",
+      "completionStatus": false,
       "content": "Текст новой задачи",
       "createdate": "09.07.2022",
       "id": "o5Dyybm"
+    }
+  ],
+  "completedTask": [
+    {
+      "title": "asas",
+      "content": "sss22",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "1pgoBMz"
+    },
+    {
+      "title": "sa",
+      "content": "sssddd",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "r8EkmJi"
     },
     {
       "title": "asasssss",
+      "completionStatus": false,
       "content": "asassssss",
       "createdate": "09.07.2022",
       "id": "OtqZ4li"
+    },
+    {
+      "title": "asasasasas",
+      "content": "sss23232",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "xclG6KT"
+    },
+    {
+      "title": "as",
+      "content": "sss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "3S-iIx5"
+    },
+    {
+      "title": "as",
+      "content": "sss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "32tU2lY"
+    },
+    {
+      "title": "as",
+      "content": "ssssss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "MQf6t8E"
+    },
+    {
+      "title": "asas",
+      "content": "ssss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "hsyVBQn"
+    }
+  ],
+  "deletedTask": [
+    {
+      "title": "asas",
+      "content": "ssss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "W-MxMer"
+    },
+    {
+      "title": "asas",
+      "content": "ssss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "AaTurXC"
+    },
+    {
+      "title": "as",
+      "content": "sss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "JSMjkFB"
+    },
+    {
+      "title": "as",
+      "content": "sss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "KIQL3uf"
+    },
+    {
+      "title": "as",
+      "content": "sss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "EvfIHaO"
+    },
+    {
+      "title": "as",
+      "content": "sss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "ORo-2EL"
+    },
+    {
+      "title": "as",
+      "content": "ssssss",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "QeKrzix"
+    },
+    {
+      "title": "фы",
+      "content": "ыыыыы",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "jw0q8TK"
+    },
+    {
+      "title": "фыфы",
+      "content": "",
+      "createdate": "09.07.2022",
+      "completionStatus": false,
+      "id": "y6zVqrV"
     }
   ]
 }

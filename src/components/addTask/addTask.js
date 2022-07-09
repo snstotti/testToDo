@@ -12,12 +12,10 @@ function AddTask() {
         return state.tasks.contentValue
     })
 
-    const curentDate = new Date().toLocaleDateString()
-    
     const newTaskData = {
         title: titleValue,
         content: contentValue,
-        createdate: curentDate
+       
     }
 
     return (

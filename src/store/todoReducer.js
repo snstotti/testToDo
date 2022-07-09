@@ -1,4 +1,4 @@
-import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, DELETE_TASK, DELETE_TASKS_ERROR, DELETE_TASKS_SUCCESS, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS, } from "../types/tasks"
+import { ADD_TASK, ADD_TASKS_ERROR, ADD_TASKS_SUCCESS, CHANGE_CONTENT, CHANGE_TITLE, EDIT_CONTENT, EDIT_TITLE, FETCH_TASKS, FETCH_TASKS_ERROR, FETCH_TASKS_SUCCESS, PUT_TASK, PUT_TASKS_ERROR, PUT_TASKS_SUCCESS, } from "../types/tasks"
 import { taskState } from "./defaultState/defaultState"
 
 export const todoReducer = (state = taskState, action)  => {
@@ -44,12 +44,12 @@ export const todoReducer = (state = taskState, action)  => {
         case ADD_TASKS_ERROR:
             return { ...state,  error: action.payload }
 
-        case DELETE_TASK:
-            return { ...state, onRemoval: false }
-        case DELETE_TASKS_SUCCESS:
-            return { ...state,  onRemoval: true }
-        case DELETE_TASKS_ERROR:
-            return { ...state,  error: action.payload }
+        // case DELETE_TASK:
+        //     return { ...state, onRemoval: false }
+        // case DELETE_TASKS_SUCCESS:
+        //     return { ...state,  onRemoval: true }
+        // case DELETE_TASKS_ERROR:
+        //     return { ...state,  error: action.payload }
 
         case PUT_TASK:
             return { ...state, onEdit: false }
@@ -57,6 +57,8 @@ export const todoReducer = (state = taskState, action)  => {
             return { ...state,  onEdit: true }
         case PUT_TASKS_ERROR:
             return { ...state,  error: action.payload }
+
+        
 
         
         default:

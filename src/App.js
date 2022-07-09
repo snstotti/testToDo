@@ -1,23 +1,18 @@
-import AddTask from "./components/addTask/addTask";
-import TaskList from "./components/taskList/taskList";
-import Sorting from "./components/sorting/sorting";
-import SearchTask from "./components/searchTask/searchTask";
+import ContentContainer from "./components/contentContainer/contentContainer";
+import Navbar from "./components/navbar/navbar";
 
 function App() {
   return (
-    <div className="container">
-      <div className="m-5">
-      
-        <AddTask />
-        <div className="d-flex justify-content-around mb-2">
-          <Sorting />
-          <SearchTask />
-        </div>
-        
-        <TaskList />
+    <>
+      <Navbar />
+      <div className="container">
+      <ContentContainer />
+
+
       </div>
-     
-    </div>
+    </>
+    
+    
   );
 }
 
