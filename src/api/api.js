@@ -1,3 +1,5 @@
+import { fetchGet, fetchPost } from "../helpers/helpers"
+
 const BASE_URL = "http://localhost:3000/"
 const TASK_URL = `${BASE_URL}tasks/`
 const COMPLETED_TASK_URL = `${BASE_URL}completedTask/`
@@ -6,19 +8,10 @@ const DELETED_TASK_URL = `${BASE_URL}deletedTask/`
  class TaskApi {
     
     async getTasks(){
-        const response = await fetch(TASK_URL)
-
-        const data = await response.json()
-        return data
+        return await fetchGet(TASK_URL)
     }
     async postTask(data){
-        await fetch(TASK_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify(data)
-            })
+        await fetchPost(TASK_URL, data)
     }
     async putTask(data){
         await fetch(`${TASK_URL}${data.id}`, {
@@ -39,35 +32,18 @@ const DELETED_TASK_URL = `${BASE_URL}deletedTask/`
             })
     }
     async getTaskCompleted(){
-        const response = await fetch(COMPLETED_TASK_URL)
-        const data = await response.json()
-        return data
+        return await fetchGet(COMPLETED_TASK_URL)
     }
     async getTaskDeleted(){
-        const response = await fetch(DELETED_TASK_URL)
-        const data = await response.json()
-        
-        return data
+        return await fetchGet(DELETED_TASK_URL)
     }
     async deletedTask(data){
         await this.deleteTask(data.id)
-        await fetch(DELETED_TASK_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        })
+        await fetchPost(DELETED_TASK_URL, data)
     } 
     async completedTask(data){
         await this.deleteTask(data.id)
-        await fetch(COMPLETED_TASK_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(data)
-        })
+        await fetchPost(COMPLETED_TASK_URL, data)
     }
 }
 

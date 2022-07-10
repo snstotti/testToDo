@@ -4,8 +4,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { getTaskCompleted } from "../../store/action-creators/completedTask";
 import { getTasksDeleted } from "../../store/action-creators/deletedTasks";
 import { getTask } from "../../store/action-creators/todos";
-import RenderTasksList from "../deletedTask/reenderTasksList";
-import Main from "../main/main";
+import RenderTasksList from "../reenderTasksList/ReenderTasksList";
+import Main from "../main/Main";
 
 
 function ContentContainer() {

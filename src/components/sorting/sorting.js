@@ -6,14 +6,12 @@ function Sorting() {
     const dispatch = useDispatch()
 
     return (
-        <div className="text-center">
-            <div className="btn-group" role="group" >
-            <button type="button" onClick={()=>dispatch(sortingTask('ALL'))} className="btn btn-outline-primary">Все</button>
-            <button type="button" onClick={()=>dispatch(sortingTask('NEW'))} className="btn btn-outline-primary">Новые</button>
-            <button type="button" onClick={()=>dispatch(sortingTask('OLD'))} className="btn btn-outline-primary">Старые</button>
+        <div className="" >
+            <button type="button" onClick={() => dispatch(sortingTask('ALL'))} className="btn">Все</button>
+            <button type="button" onClick={() => dispatch(sortingTask('NEW'))} className="btn">Новые</button>
+            <button type="button" onClick={() => dispatch(sortingTask('OLD'))} className="btn">Старые</button>
         </div>
-        </div>
-        
+
     );
 }
 

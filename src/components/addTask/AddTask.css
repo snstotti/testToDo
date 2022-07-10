@@ -1,0 +1,8 @@
+.add-task{
+    display: flex;
+    width: 100%;
+}
+.input-block{
+    width: 75%;
+    margin-bottom: 0.75rem;
+}

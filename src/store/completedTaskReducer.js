@@ -1,4 +1,4 @@
-import {  FETCH_COMPLETED_TASKS, FETCH_COMPLETED_TASKS_ERROR, FETCH_COMPLETED_TASKS_SUCCESS } from "../types/tasks"
+import { FETCH_COMPLETED_TASKS, FETCH_COMPLETED_TASKS_ERROR, FETCH_COMPLETED_TASKS_SUCCESS } from "../types/tasks"
 import { completedTask } from "./defaultState/defaultState"
 
 export const completedTaskReducer = (state = completedTask, action)  => {
@@ -12,8 +12,6 @@ export const completedTaskReducer = (state = completedTask, action)  => {
         case FETCH_COMPLETED_TASKS_ERROR:
             return { ...state, error: action.payload }
 
-
-        
         default:
             return state
     }

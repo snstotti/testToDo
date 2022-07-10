@@ -1,6 +1,8 @@
+import "./Spiner.css"
+
 function Spiner() {
-    return ( <div className="spinner-border" role="status">
-    <span className="visually-hidden">Loading...</span>
+    return ( <div className="spinner-loader" >
+    <span className="">Loading...</span>
   </div> );
 }
 

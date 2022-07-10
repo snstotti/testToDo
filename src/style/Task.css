@@ -1,0 +1,18 @@
+.card{
+    margin: 0 auto;
+}
+.card__content{
+    display: flex;
+    justify-content: space-between;
+}
+.card__subtitle{
+   display: flex;
+   align-items: center;
+}
+.card__block{
+    padding: 0.5rem 1rem;
+    border: 1px solid #2e2f31bf;
+}
+.card__title{
+    font-size: 1.25rem;
+}

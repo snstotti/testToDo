@@ -1,6 +1,5 @@
-import { useSelector } from "react-redux";
-import ItemList from "../itemList/itemList";
-import Spiner from "../spiner/spiner";
+import ItemList from "../itemList/ItemList";
+import Spiner from "../spiner/Spiner";
 
 
 function RenderTasksList({listTask, flag}) {

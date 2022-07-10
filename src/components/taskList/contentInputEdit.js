@@ -8,18 +8,20 @@ function ContentInputEdit({data, flag}) {
     
     const dispatch = useDispatch()
 
-   
+    const closeAndSaveBtn=()=>{
+        dispatch(putTask(data))
+        setshowInputEdit(false)
+       }
 
     return ( 
         <>
-            <p className={!showInputEdit ? "card-text" : "d-none"}>
+            <p className={!showInputEdit ? "" : "d-none"}>
                 {data.content} 
-                <button type="button" onClick={()=>setshowInputEdit(true)} className={flag ? "btn btn-outline-primary btn-sm" : "d-none"} >Edit</button>
+                <button type="button" onClick={()=>setshowInputEdit(true)} className={flag ? "btn" : "d-none"} >Edit</button>
             </p>
             <div className={showInputEdit ? "d-flex" : "d-none"}>
-                <input className="form-control w-75"  onChange={(e)=>dispatch(editTaskContent(data.id,e.target.value))} value={data.content} type="text" placeholder=""  />
-                <button type="button"  onClick={()=>dispatch(putTask(data))} className="btn btn-outline-primary btn-sm"  >Save</button>
-                <button type="button" onClick={()=>setshowInputEdit(false)} className="btn btn-outline-primary btn-sm"  >Close</button>
+                <input className="input w-75"  onChange={(e)=>dispatch(editTaskContent(data.id,e.target.value))} value={data.content} type="text" placeholder=""  />
+                <button type="button"  onClick={closeAndSaveBtn} className="btn"  >Save</button>
             </div>
             
         </>

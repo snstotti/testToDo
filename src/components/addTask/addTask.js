@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addContentTask, addTask, addTitleTask } from '../../store/action-creators/todos';
+import "./AddTask.css"
 
 function AddTask() {
 
@@ -17,16 +18,22 @@ function AddTask() {
         content: contentValue,
        
     }
+    // const validateText = ()=>{
+    //     if()
+    // }
+
+    const condition = !titleValue || !contentValue 
+    const textBtn = condition ? "Поля не заполнены" : "Добавить задачу"
 
     return (
-        <div className="w-100 d-flex ">
+        <div className="add-task">
             <div  className="">
-                <button type="button" onClick={()=>dispatch(addTask(newTaskData))} className="btn btn-primary">Добавить задачу</button>
+                <button disabled={condition} type="button" onClick={()=>dispatch(addTask(newTaskData))} className="btn">{textBtn}</button>
                 
             </div>
-            <div className="mb-3 w-75">
-                    <input type="text" onChange={(e)=>dispatch(addTitleTask(e.target.value))} value={titleValue} className="form-control" id="" placeholder=""/>
-                    <input type="text" onChange={(e)=>dispatch(addContentTask(e.target.value))} value={contentValue} className="form-control" id="" placeholder=""/>
+            <div className="input-block">
+                    <input type="text" onChange={(e)=>dispatch(addTitleTask(e.target.value))} value={titleValue} className="input" id="" placeholder="Название Задачи"/>
+                    <input type="text" onChange={(e)=>dispatch(addContentTask(e.target.value))} value={contentValue} className="input" id="" placeholder="Описание задачи"/>
                 </div>
         </div>
     )

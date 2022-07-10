@@ -1,6 +1,6 @@
 import {  useSelector } from "react-redux";
-import Spiner from "../spiner/spiner";
-import Task from "./task";
+import Spiner from "../spiner/Spiner";
+import Task from "./Task";
 
 function TaskList() {
 

@@ -40,16 +40,10 @@ export const todoReducer = (state = taskState, action)  => {
         case ADD_TASK:
             return { ...state, added: false }
         case ADD_TASKS_SUCCESS:
-            return { ...state,  added: true }
+            return { ...state,  added: true, titleValue: "", contentValue: "" }
         case ADD_TASKS_ERROR:
             return { ...state,  error: action.payload }
 
-        // case DELETE_TASK:
-        //     return { ...state, onRemoval: false }
-        // case DELETE_TASKS_SUCCESS:
-        //     return { ...state,  onRemoval: true }
-        // case DELETE_TASKS_ERROR:
-        //     return { ...state,  error: action.payload }
 
         case PUT_TASK:
             return { ...state, onEdit: false }

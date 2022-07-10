@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { completedTask } from "../../store/action-creators/completedTask";
-import ContentInputEdit from "./contentInputEdit";
-import EditInput from "./editInput";
+import ContentInputEdit from "./ContentInputEdit";
+import EditInput from "./EditInput";
 import { deletedTask } from "../../store/action-creators/deletedTasks";
+import "../../style/Task.css"
 
 function Task({ data }) {
 
@@ -21,18 +22,18 @@ function Task({ data }) {
         <div
             onMouseOver={() => setShowBtnEdit(true)}
             onMouseOut={() => setShowBtnEdit(false)}
-            className="card mx-auto w-50" style={{ width: "18rem" }}>
+            className="card w-50">
 
-            <div className="card-body">
-                <div className="d-flex justify-content-between">
-                    <div className="form-check">
-                        <input onChange={changeCompleted} className="form-check-input" type="checkbox" checked={data.completionStatus} id=""/>
+            <div className="card__block w-100">
+                <div className="card__content">
+                    <div className="">
+                        <input onChange={changeCompleted} className="" type="checkbox" checked={data.completionStatus} id=""/>
                            
                     </div>
                     <EditInput data={data} flag={showBtnEdit} />
-                    <div>
-                        <small className="card-subtitle mb-2 text-muted ml-auto">{data.createdate}</small>
-                        <button type="button" onClick={() => dispatch(deletedTask(data))} className={showBtnEdit ? "btn-close" : "d-none"} ></button>
+                    <div className="card__subtitle">
+                        <small className="text-muted">{data.createdate}</small>
+                        <button type="button" onClick={() => dispatch(deletedTask(data))} className="btn-close" ></button>
                     </div>
 
                 </div>
