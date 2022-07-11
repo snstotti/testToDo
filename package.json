@@ -20,8 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
-   
+    "build": "react-scripts build",
+    "server": "npx json-server --watch db.json -p 8000"
   },
   "eslintConfig": {
     "extends": [

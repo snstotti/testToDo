@@ -1,6 +1,6 @@
 import { fetchGet, fetchPost } from "../helpers/helpers"
 
-const BASE_URL = "http://localhost:3000/"
+const BASE_URL = "http://localhost:8000/"
 const TASK_URL = `${BASE_URL}tasks/`
 const COMPLETED_TASK_URL = `${BASE_URL}completedTask/`
 const DELETED_TASK_URL = `${BASE_URL}deletedTask/`
